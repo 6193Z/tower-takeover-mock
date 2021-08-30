@@ -25,14 +25,13 @@ void opcontrol()
 		int joyLY = control.get_analog(ANALOG_LEFT_Y);
 		int joyRX = control.get_analog(ANALOG_RIGHT_X);
 
-		bool btnR1 = control.get_digital(DIGITAL_R1);
-		bool btnR2 = control.get_digital(DIGITAL_R2);
 		bool btnA = control.get_digital(DIGITAL_A);
 		bool btnB = control.get_digital(DIGITAL_B);
 		bool btnX = control.get_digital(DIGITAL_X);
-		bool btnR1 = control.get_digital(DIGITAL_R1);
 		bool btnL1 = control.get_digital(DIGITAL_L1);
 		bool btnL2 = control.get_digital(DIGITAL_L2);
+		bool btnR1 = control.get_digital(DIGITAL_R1);
+		bool btnR2 = control.get_digital(DIGITAL_R2);
 
 		bool degReset = limitSwitch.get_value();
 
