@@ -12,7 +12,7 @@ pros::Motor rightRoller(10);
 pros::Motor armMotor(17);
 pros::Motor tilter(7);
 
-pros::ADIButton limitSwitch('a');
+pros::ADIButton resetLimit('a');
 
 //////////////////////////////////////////
 
@@ -33,7 +33,7 @@ void opcontrol()
 		bool btnR1 = control.get_digital(DIGITAL_R1);
 		bool btnR2 = control.get_digital(DIGITAL_R2);
 
-		bool degReset = limitSwitch.get_value();
+		bool degReset = resetLimit.get_value();
 
 		leftRoller.set_brake_mode(MOTOR_BRAKE_BRAKE);
 		rightRoller.set_brake_mode(MOTOR_BRAKE_BRAKE);
@@ -96,3 +96,4 @@ void opcontrol()
 
 		pros::delay(20);
 	}
+}
