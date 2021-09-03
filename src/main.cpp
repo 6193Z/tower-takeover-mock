@@ -25,6 +25,8 @@ void opcontrol()
 		int joyLY = control.get_analog(ANALOG_LEFT_Y);
 		int joyRX = control.get_analog(ANALOG_RIGHT_X);
 
+		bool degReset = resetLimit.get_value();
+
 		bool btnA = control.get_digital(DIGITAL_A);
 		bool btnB = control.get_digital(DIGITAL_B);
 		bool btnX = control.get_digital(DIGITAL_X);
@@ -33,20 +35,18 @@ void opcontrol()
 		bool btnR1 = control.get_digital(DIGITAL_R1);
 		bool btnR2 = control.get_digital(DIGITAL_R2);
 
-		bool degReset = resetLimit.get_value();
-
 		leftRoller.set_brake_mode(MOTOR_BRAKE_BRAKE);
 		rightRoller.set_brake_mode(MOTOR_BRAKE_BRAKE);
 		armMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
 		tilter.set_brake_mode(MOTOR_BRAKE_HOLD);
 
-		//Arcade drive
+		// Arcade drive
 		FLDrive.move(joyLY + joyRX);
 		FRDrive.move(joyLY - joyRX);
 		BLDrive.move(joyLY + joyRX);
 		BRDrive.move(joyLY - joyRX);
 
-		//Roller intake and outake
+		// Roller intake and outake
 		if (btnR1)
 		{
 			leftRoller.move(127);
@@ -58,7 +58,7 @@ void opcontrol()
 			rightRoller.move(127);
 		}
 
-		//Move arms up and down
+		// Move arms up and down
 		if (btnA)
 		{
 			armMotor.move(127);
@@ -68,7 +68,7 @@ void opcontrol()
 			armMotor.move(-127);
 		}
 
-		//Move tray titler up and down
+		// Move tray titler up and down
 		if (btnL1)
 		{
 			if (tilter.get_position() > 1000)
