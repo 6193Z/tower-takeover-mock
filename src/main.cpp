@@ -1,6 +1,6 @@
 #include "main.h"
 
-pros::Controller control(pros::E_CONTROLLER_MASTER);
+pros::Controller control(CONTROLLER_MASTER);
 
 pros::Motor FLDrive(18);
 pros::Motor FRDrive(8);
